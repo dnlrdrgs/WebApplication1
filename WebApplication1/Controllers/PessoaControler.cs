@@ -15,6 +15,13 @@ namespace SenaiApi.Controllers
         
         }
 
+        [HttpGet]
+        public IActionResult Get() 
+        {
+            var pessoa = _pessoasServices.BuscarTodos();
+            return new JsonResult(pessoa);
+        }
+
         [HttpPost]
         public IActionResult Salvar([FromBody] PessoaDto pessoa)
         {

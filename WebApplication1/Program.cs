@@ -5,6 +5,7 @@ using SenaiApi.Repository.Repositorio;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using SenaiApi.Repository.Contexts;
+using SenaiApi.Repository;
 
 namespace WebApplication1
 {
@@ -25,6 +26,7 @@ namespace WebApplication1
             builder.Services.AddScoped<IPessoasServices, PessoasServices>();
 
             builder.Services.AddScoped<IPessoaRepositorio, PessoaRepositorio>();
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             builder.Services.AddDbContext<ApiContext>(options => options.UseNpgsql(builder.Configuration.GetValue<string>("ConnectionStrings:ApiSenai")));
 

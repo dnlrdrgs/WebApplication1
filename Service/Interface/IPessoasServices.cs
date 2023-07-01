@@ -1,4 +1,5 @@
-﻿using SenaiApi.Domen.NovaPasta;
+﻿using SenaiApi.Domen.Entidades;
+using SenaiApi.Domen.NovaPasta;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace SenaiApi.Service.Interface
 {
     public interface IPessoasServices
     {
+        public List<Pessoa> BuscarTodos();
         void Salvar(PessoaDto pessoa);
     }
 }
