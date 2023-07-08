@@ -1,11 +1,4 @@
-﻿using SenaiApi.Domen.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SenaiApi.Domen.NovaPasta
+﻿namespace SenaiApi.Domen.NovaPasta
 {
     public class EnderecoDto
     {
@@ -14,7 +7,6 @@ namespace SenaiApi.Domen.NovaPasta
         public int CEP { get; set; }
         public string Cidade { get; set; }
         public string UF { get; set; }
-        public long PessoaId { get; set; }
-        public Pessoa Pessoa { get; set; }
+
     }
 }

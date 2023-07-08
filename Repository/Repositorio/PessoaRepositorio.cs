@@ -17,6 +17,19 @@ namespace SenaiApi.Repository.Repositorio
         {
             return GetAll().ToList();
         }
+        public bool SalvarPessoa(Pessoa pessoa)
+        {
+            try
+            {
+                Salvar(pessoa);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
 
     }
 }

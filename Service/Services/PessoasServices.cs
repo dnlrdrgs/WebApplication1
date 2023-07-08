@@ -1,4 +1,5 @@
-﻿using SenaiApi.Domen.Entidades;
+﻿using AutoMapper;
+using SenaiApi.Domen.Entidades;
 using SenaiApi.Domen.NovaPasta;
 using SenaiApi.Repository.Interfaces;
 using SenaiApi.Service.Interface;
@@ -12,10 +13,12 @@ namespace SenaiApi.Service.Services
 {
     public class PessoasServices : IPessoasServices
     {
+        private IMapper _mapper;
         private IPessoaRepositorio _pessoaRepositorio;
 
-        public PessoasServices(IPessoaRepositorio pessoaRepositorio)
+        public PessoasServices(IMapper mapper, IPessoaRepositorio pessoaRepositorio)
         {
+            _mapper = mapper;
             _pessoaRepositorio = pessoaRepositorio;
         }
 
@@ -23,9 +26,10 @@ namespace SenaiApi.Service.Services
         {
             return _pessoaRepositorio.PegarTodasAsPessoas();
         }
-        public void Salvar(PessoaDto pessoa)
+        public bool Salvar(PessoaDto pessoaDto)
         {
-            throw new NotImplementedException();
+            var pessoa = _mapper.Map<Pessoa>(pessoaDto);
+            return _pessoaRepositorio.SalvarPessoa(pessoa);
         }
     }
 }

@@ -12,6 +12,5 @@ namespace SenaiApi.Domen.Entidades
         [Key]
         public long Id { get; set; }
 
-        public Pessoa Pessoa { get; set; }
     }
 }

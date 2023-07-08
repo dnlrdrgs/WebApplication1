@@ -27,7 +27,7 @@ namespace SenaiApi.Controllers
         {
             try
             {
-                //_pessoasServices.Salvar();
+                _pessoasServices.Salvar(pessoa);
                 
                 return Ok();
             }

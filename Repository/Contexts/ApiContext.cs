@@ -10,7 +10,10 @@ namespace SenaiApi.Repository.Contexts
 {
     public class ApiContext : DbContext
     {
-        public ApiContext(DbContextOptions<ApiContext> options) : base(options) { }
+        public ApiContext(DbContextOptions<ApiContext> options) : base(options) {
+
+
+        }
         public DbSet<Pessoa> Pessoas { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){}

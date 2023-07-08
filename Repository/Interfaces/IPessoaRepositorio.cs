@@ -12,5 +12,7 @@ namespace SenaiApi.Repository.Interfaces
     {
         public List<Pessoa> PegarTodasAsPessoas();
 
+        bool SalvarPessoa(Pessoa pessoa);
+
     }
 }

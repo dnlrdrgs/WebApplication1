@@ -14,6 +14,5 @@ namespace SenaiApi.Domen.Entidades
         public string Cidade { get; set; }
         public string UF { get; set;}
         public long PessoaId { get; set; }
-        public Pessoa Pessoa { get; set; }
     }
 }
