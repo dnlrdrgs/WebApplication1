@@ -78,9 +78,6 @@ namespace SenaiApi.Repository.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<long>("PessoaId")
-                        .HasColumnType("bigint");
-
                     b.Property<int>("SexoEnum")
                         .HasColumnType("integer");
 
@@ -90,31 +87,16 @@ namespace SenaiApi.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PessoaId");
-
                     b.ToTable("Pessoas");
                 });
 
             modelBuilder.Entity("SenaiApi.Domen.Entidades.Endereco", b =>
                 {
-                    b.HasOne("SenaiApi.Domen.Entidades.Pessoa", "Pessoa")
+                    b.HasOne("SenaiApi.Domen.Entidades.Pessoa", null)
                         .WithOne("Endereco")
                         .HasForeignKey("SenaiApi.Domen.Entidades.Endereco", "PessoaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Pessoa");
-                });
-
-            modelBuilder.Entity("SenaiApi.Domen.Entidades.Pessoa", b =>
-                {
-                    b.HasOne("SenaiApi.Domen.Entidades.Pessoa", "Pessoa")
-                        .WithMany()
-                        .HasForeignKey("PessoaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Pessoa");
                 });
 
             modelBuilder.Entity("SenaiApi.Domen.Entidades.Pessoa", b =>

@@ -1,4 +1,5 @@
-﻿using SenaiApi.Domen.Entidades;
+﻿using Microsoft.EntityFrameworkCore;
+using SenaiApi.Domen.Entidades;
 using SenaiApi.Repository.Contexts;
 using SenaiApi.Repository.Interfaces;
 using System;
@@ -15,7 +16,7 @@ namespace SenaiApi.Repository.Repositorio
 
         public List<Pessoa> PegarTodasAsPessoas()
         {
-            return GetAll().ToList();
+            return GetAll().Include(c => c.Endereco).ToList();
         }
         public bool SalvarPessoa(Pessoa pessoa)
         {
@@ -30,6 +31,17 @@ namespace SenaiApi.Repository.Repositorio
             }
 
         }
-
+        public bool RemoverPessoa(long id)
+        {
+            try
+            {
+                Remover(id);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return true;
+            }
+        }
     }
 }

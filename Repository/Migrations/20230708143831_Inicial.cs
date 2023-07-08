@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace SenaiApi.Repository.Migrations
 {
-    public partial class MigraçãoInicila : Migration
+    public partial class Inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,18 +20,11 @@ namespace SenaiApi.Repository.Migrations
                     Sobrenome = table.Column<string>(type: "text", nullable: false),
                     Nascimento = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     DataInsercao = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    SexoEnum = table.Column<int>(type: "integer", nullable: false),
-                    PessoaId = table.Column<long>(type: "bigint", nullable: false)
+                    SexoEnum = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Pessoas", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Pessoas_Pessoas_PessoaId",
-                        column: x => x.PessoaId,
-                        principalTable: "Pessoas",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -63,11 +56,6 @@ namespace SenaiApi.Repository.Migrations
                 table: "Enderecos",
                 column: "PessoaId",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Pessoas_PessoaId",
-                table: "Pessoas",
-                column: "PessoaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

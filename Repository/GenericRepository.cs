@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations.Operations;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using SenaiApi.Domen.Entidades;
 using SenaiApi.Repository.Contexts;
 using SenaiApi.Repository.Interfaces;
@@ -42,5 +43,13 @@ namespace SenaiApi.Repository
             _context.SaveChanges();
             return entity;
         }
+
+        public void Remover(long id)
+        {
+            var entidade = _context.Set<T>().First(c => c.Id == id);
+            _context.Set<T>().Remove(entidade);
+            _context.SaveChanges();
+        }
+
     }
 }

@@ -37,5 +37,19 @@ namespace SenaiApi.Controllers
             }
         }
 
+        [HttpDelete]
+        public IActionResult Delete( int id)
+        {
+            try
+            {
+                _pessoasServices.Remover(id);
+                return Ok();
+
+            }catch (Exception ex)
+            {
+                return BadRequest();
+            }
+        }
+
     }
 }

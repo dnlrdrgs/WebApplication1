@@ -14,5 +14,7 @@ namespace SenaiApi.Repository.Interfaces
 
         bool SalvarPessoa(Pessoa pessoa);
 
+        bool RemoverPessoa(long id);
+
     }
 }

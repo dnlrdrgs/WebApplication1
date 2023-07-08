@@ -31,5 +31,9 @@ namespace SenaiApi.Service.Services
             var pessoa = _mapper.Map<Pessoa>(pessoaDto);
             return _pessoaRepositorio.SalvarPessoa(pessoa);
         }
+        public bool Remover(long id)
+        {
+            return _pessoaRepositorio.RemoverPessoa(id);
+        }
     }
 }
